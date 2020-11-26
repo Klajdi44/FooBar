@@ -1,11 +1,26 @@
-
+import React, { useState, useEffect } from 'react';
+import Bartender from './components/Bartender';
+import { get } from './modules/rest';
+import { customInterval } from './modules/customInterval';
 import './App.css';
 
+
 function App() {
+  const [apiData, setApiData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = () => get('https://foobar-exam-data.herokuapp.com/', (data) => setApiData(data));
+    customInterval(fetchData, 3000);
+
+  }, []);
+
   return (
     <div className="App">
+      {apiData.length === 0 ? <div> Loading </div> :
+        <Bartender bartenders={apiData.bartenders} />
 
-      <h1>hello world</h1>
+
+      }
     </div>
   );
 }

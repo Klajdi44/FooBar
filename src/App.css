@@ -12,3 +12,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bartender-wrapper img{
+  max-width: 20%;
+}
+
+/* Bartenders section */
+.bartender-wrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3em;
+  margin: 2em auto;
+}
+.bartender-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background:red;
+  min-width:20%;
+  max-width:40%;
+  padding: 3em;
+  border-radius: 20px;
+  margin-left: 2em;
+  color: #fff;
+  background:#2c2c2c;
+}
+
+.bartender-left-col,.bartender-mid-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bartender-right-col h2{
+  margin-top: .5em;
+ 
+}
+
