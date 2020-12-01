@@ -25,30 +25,42 @@ body {
 }
 
 
-.bartender-wrapper img{
-  max-width: 20%;
-}
 
 /* Bartenders section */
 .bartender-wrapper{
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 3em;
-  margin: 2em auto;
+   gap: 1em;
+   place-items: center;
+   padding: 1em 0;
+   grid-area: bartenders;
+   background: var(--wrapper-bg-color);
+
 }
 .bartender-card{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  background:red;
+  display:grid;
+  grid-template-areas: 
+  'left-col mid-col  right-col';
+  gap: 1.2em;
+  grid-template-columns: 1fr 3fr 1fr;
+  min-height: 3em;
   min-width:20%;
-  max-width:40%;
-  padding: 3em;
+  max-width:96%;
+  padding: 1em 2em;
   border-radius: 20px;
-  margin-left: 2em;
-  color: #fff;
-  background:#2c2c2c;
+  color:var(--main-font-color);
+  background: var(--main-bg-color);
+}
+
+.bartender-wrapper img{
+  max-width: 100%;
+}
+
+.bartenders-heading{
+  align-self: flex-start;
+  margin-left: .6em;
+  font-size: var(--header-font-size);
 }
 
 .bartender-left-col,.bartender-mid-col{
@@ -57,12 +69,18 @@ body {
   justify-content: space-between;
 }
 
-.bartender-right-col h2{
-  margin-top: .5em; 
+.bartender-left-col{
+grid-area: left-col;
+}
+.bartender-mid-col{
+  grid-area: mid-col;
+  align-self: flex-end;
+  justify-self: center;
 }
 
-/* Dashboard starts here */
-
+.bartender-right-col{
+  grid-area: right-col;
+}
 
 /* dashboard grid */
 
@@ -76,10 +94,6 @@ body {
 }
 
 
-.bartender-wrapper{
-  grid-area: bartenders;
-  background: red;
-}
 
 .statistics-wrapper{
   grid-area: statistics;
@@ -89,7 +103,7 @@ body {
 
 .orders-wrapper{
   grid-area: orders;
-  background: yellow;
+  background: brown;
 
 }
 

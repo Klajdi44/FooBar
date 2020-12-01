@@ -2,7 +2,7 @@ import ReactEcharts from "echarts-for-react";
 
 
 function Statistics(props) {
-	console.log(props.apiData.length);
+	// console.log(props.apiData.length);
 	// const var1 = props.apiData.length < 1 ? 255 : props.apiData[0].id;
 
 	const getOption = () => ({

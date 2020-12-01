@@ -1,9 +1,21 @@
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
 
 function Bartender(props) {
-	// console.log(props.apiData, bartenderStatus);
+	console.log(props.apiData);
+
+	useEffect(() => {
+		gsap.fromTo(
+			".bartender-card",
+			{ opacity: 0, x: 100 + "%" },
+			{ opacity: 1, x: 0 + "%", stagger: 0.3, duration: 1 }
+		);
+	}, []);
+
 	return (
 
 		<article className='bartender-wrapper' >
+			<h1 className='bartenders-heading'>Bartenders</h1>
 			{props.apiData.map(bartender => {
 
 				// const replaceKeg = bartender.statusDetail === 'replaceKeg' ? 'Replacing Keg' : null;
@@ -46,19 +58,19 @@ function Bartender(props) {
 
 						<div className='bartender-mid-col'>
 							<div>
-								<h3>Serving Customer</h3>
-								<span> {bartender.servingCustomer === null ? 'None' : bartender.servingCustomer}</span>
+								<span>Serving Customer</span>
+								<h4> {bartender.servingCustomer === null ? 'None' : `#${bartender.servingCustomer}`}</h4>
 							</div>
 							<br />
 							<div>
-								<h3>Currently</h3>
-								<span> {statuses[bartender.statusDetail]}</span>
+								<span>Currently</span>
+								<h4> {statuses[bartender.statusDetail]}</h4>
 							</div>
 						</div>
 
 						<div className='bartender-right-col'>
-							<h3>Tap</h3>
-							<span>{bartender.usingTap === null ? "None" : bartender.usingTap}</span>
+							<span>Tap</span>
+							<h4>{bartender.usingTap === null ? "None" : bartender.usingTap}</h4>
 						</div>
 
 					</div>
