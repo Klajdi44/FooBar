@@ -104,8 +104,13 @@ grid-area: left-col;
 
 .orders-wrapper{
   grid-area: orders;
-  background: brown;
-
+  background: var(--wrapper-bg-color);
+  display:grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
+  padding: 1em ;
+  gap: 1em;
+  overflow-y: auto;
+  height: 550px;
 }
 
 .taps-wrapper{
@@ -122,4 +127,36 @@ grid-area: left-col;
 
 .dashboard-wrapper > article {
   border-radius: var(--border-radius);
+}
+
+/* orders */
+.order-card{
+  height: 160px;
+  max-height: 300px;
+  width: 300px;
+  background:var(--main-bg-color);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 17px;
+   padding: 1em;
+}
+
+.order-card ul{
+  justify-self: flex-start;
+  margin-left: .3em;
+  margin-left: .5em;
+}
+.order-card li{
+list-style: none;
+}
+
+
+.order-img{
+  height: 100px;
+  margin-right: .3em;
+}
+
+.order-number{
+  margin-left: .8em;
 }

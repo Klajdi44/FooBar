@@ -8,13 +8,13 @@ import Statistics from './Statistics';
 
 
 function Dashboard(props) {
-	// console.log(props.apiData);
+	// console.log(props.apiData.queue);
 	return (
 		<section className="dashboard-wrapper">
 			<Bartender apiData={props.apiData.bartenders} />
 			<Statistics apiData={props.apiData.queue} />
+			<Orders apiData={props.apiData.queue} />
 			<Taps />
-			<Orders />
 			<Storage />
 
 		</section >
