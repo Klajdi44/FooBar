@@ -1,34 +1,34 @@
 function Orders(props) {
-  return (
-    <article className="orders-wrapper">
-      <h1>Orders</h1>
-      {props.apiData.map((orders) => {
-        const duplicatesResult = {};
-        orders.order.map(function (x) {
-          duplicatesResult[x] = (duplicatesResult[x] || 0) + 1;
-          return duplicatesResult;
-        });
+	// props.apiData.length < 1 ? null : props.apiData.map(orders => 
 
-        const maps = Object.entries(duplicatesResult).map(([key, value]) => {
-          return (
-            <span>
-              {key} x{value}
-              <br />
-            </span>
-          );
-        });
-        console.table(orders);
-        console.table(duplicatesResult);
+	return (
+		<article className="orders-wrapper">
+			{	props.apiData.map(orders => {
 
-        return (
-          <div>
-            <h1>{orders.id}</h1>
-            <div>{maps}</div>
-          </div>
-        );
-      })}
-    </article>
-  );
+				const duplicatesResult = {};
+				orders.order.map(function (beer) {
+					duplicatesResult[beer] = (duplicatesResult[beer] || 0) + 1;
+					return duplicatesResult;
+				});
+
+				console.log(duplicatesResult);
+
+				return (
+					<div className="order-card" key={orders.id}>
+						<div >
+							<img className="order-img" src="images/beer-w.png" alt="beers" />
+							<h3 className="order-number"> {`#${orders.id}`}</h3>
+						</div>
+						<ul>
+							{Object.entries(duplicatesResult).map(([key, value]) => {
+								return <li className="order-beer">{value === 1 ? "" : `x${value}`} {key} </li>
+							})}
+						</ul>
+					</div>
+				)
+			})}
+		</article>
+	)
 }
 
 export default Orders;
