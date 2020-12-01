@@ -11,7 +11,7 @@ function Dashboard(props) {
     <section className="dashboard-wrapper">
       <Bartender apiData={props.apiData.bartenders} />
       <Statistics apiData={props.apiData.queue} />
-      <Taps />
+      <Taps apiData={props.apiData.taps} />
       <Orders />
       <Storage apiData={props.apiData.storage} />
     </section>
