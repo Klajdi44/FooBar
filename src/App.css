@@ -107,7 +107,7 @@ grid-area: left-col;
   background: var(--wrapper-bg-color);
   display:grid;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
-  padding: 1em ;
+  padding: 1em;
   gap: 1em;
   overflow-y: auto;
   height: 550px;
@@ -131,8 +131,9 @@ grid-area: left-col;
 
 /* orders */
 .order-card{
-  height: 160px;
-  max-height: 300px;
+  /* height: max(150px, 100%);
+   */
+   height: clamp(150px, 200px, 100%);
   width: 300px;
   background:var(--main-bg-color);
   display: flex;
@@ -140,21 +141,21 @@ grid-area: left-col;
   align-items: center;
   border-radius: 17px;
    padding: 1em;
+  /* filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .3)); */
 }
 
 .order-card ul{
   justify-self: flex-start;
-  margin-left: .3em;
   margin-left: .5em;
 }
 .order-card li{
 list-style: none;
+line-height: 160%;
 }
 
 
 .order-img{
   height: 100px;
-  margin-right: .3em;
 }
 
 .order-number{

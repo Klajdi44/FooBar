@@ -1,12 +1,18 @@
-
-
 function Orders(props) {
-	console.log(props.apiData);
-
+	// props.apiData.length < 1 ? null : props.apiData.map(orders => 
 
 	return (
 		<article className="orders-wrapper">
-			{	 props.apiData.length < 1 ? null : props.apiData.map(orders => {
+			{	props.apiData.map(orders => {
+
+				const duplicatesResult = {};
+				orders.order.map(function (beer) {
+					duplicatesResult[beer] = (duplicatesResult[beer] || 0) + 1;
+					return duplicatesResult;
+				});
+
+				console.log(duplicatesResult);
+
 				return (
 					<div className="order-card" key={orders.id}>
 						<div >
@@ -14,9 +20,8 @@ function Orders(props) {
 							<h3 className="order-number"> {`#${orders.id}`}</h3>
 						</div>
 						<ul>
-							{orders.order.map(beer => {
-								return (
-									<li className="order-beer">{beer}</li>)
+							{Object.entries(duplicatesResult).map(([key, value]) => {
+								return <li className="order-beer">{value === 1 ? "" : `x${value}`} {key} </li>
 							})}
 						</ul>
 					</div>

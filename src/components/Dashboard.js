@@ -16,7 +16,6 @@ function Dashboard(props) {
 			<Orders apiData={props.apiData.queue} />
 			<Taps />
 			<Storage />
-
 		</section >
 	);
 }
