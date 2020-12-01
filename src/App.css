@@ -86,7 +86,6 @@ body {
 
 .orders-wrapper {
   grid-area: orders;
-  background: yellow;
 }
 
 .taps-wrapper {

@@ -12,7 +12,7 @@ function Dashboard(props) {
       <Bartender apiData={props.apiData.bartenders} />
       <Statistics apiData={props.apiData.queue} />
       <Taps apiData={props.apiData.taps} />
-      <Orders />
+      <Orders apiData={props.apiData.queue} />
       <Storage apiData={props.apiData.storage} />
     </section>
   );
