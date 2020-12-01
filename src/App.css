@@ -1,7 +1,9 @@
-*,*::before, *::after{
- box-sizing: border-box;
- padding: 0;
- margin: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 :root {
@@ -9,117 +11,215 @@
   --wrapper-bg-color: #2c2c2c;
   --header-font-family: Helvetica;
   --header-font-size: 14px;
-  --regular-font-size:14px;
+  --regular-font-size: 14px;
   --main-font-color: #fff;
-   --border-radius: 15px;
+  --border-radius: 15px;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-font-color);
   background-color: var(--main-bg-color);
-  padding:1em;
+  padding: 1em;
 }
-
-
 
 /* Bartenders section */
-.bartender-wrapper{
-  display:flex;
+.bartender-wrapper {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-   gap: 1em;
-   place-items: center;
-   padding: 1em 0;
-   grid-area: bartenders;
-   background: var(--wrapper-bg-color);
-
+  gap: 1em;
+  place-items: center;
+  padding: 1em 0;
+  grid-area: bartenders;
+  background: var(--wrapper-bg-color);
 }
-.bartender-card{
-  display:grid;
-  grid-template-areas: 
-  'left-col mid-col  right-col';
+.bartender-card {
+  display: grid;
+  grid-template-areas: "left-col mid-col  right-col";
   gap: 1.2em;
   grid-template-columns: 1fr 3fr 1fr;
   min-height: 3em;
-  min-width:20%;
-  max-width:96%;
+  min-width: 20%;
+  max-width: 96%;
   padding: 1em 2em;
   border-radius: 20px;
-  color:var(--main-font-color);
+  color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
-.bartender-wrapper img{
+.bartender-wrapper img {
   max-width: 100%;
 }
 
-.bartenders-heading{
+.bartenders-heading {
   align-self: flex-start;
-  margin-left: .6em;
+  margin-left: 0.6em;
   font-size: var(--header-font-size);
 }
 
-.bartender-left-col,.bartender-mid-col{
+.bartender-left-col,
+.bartender-mid-col {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.bartender-left-col{
-grid-area: left-col;
+.bartender-left-col {
+  grid-area: left-col;
 }
-.bartender-mid-col{
+.bartender-mid-col {
   grid-area: mid-col;
   align-self: flex-end;
   justify-self: center;
 }
 
-.bartender-right-col{
+.bartender-right-col {
   grid-area: right-col;
 }
 
 /* dashboard grid */
 
-.dashboard-wrapper{
-  display:grid;
+.dashboard-wrapper {
+  display: grid;
   grid-template-columns: 1.4fr 2fr 1.4fr;
   grid-template-areas:
-  'statistics orders bartenders'
-   'taps taps storage';
-   gap: 1em;
+    "statistics orders bartenders"
+    "taps taps storage";
+  gap: 1em;
 }
 
+.bartender-wrapper {
+  grid-area: bartenders;
+  background: red;
+}
 
-
-.statistics-wrapper{
+.statistics-wrapper {
   grid-area: statistics;
   background: green;
-
 }
 
-.orders-wrapper{
+.orders-wrapper {
   grid-area: orders;
-  background: brown;
-
 }
 
-.taps-wrapper{
+.taps-wrapper {
   grid-area: taps;
-  background: hotpink;
-
+  background-color: var(--wrapper-bg-color);
 }
 
-.storage-wrapper{
+.storage-wrapper {
   grid-area: storage;
-  background: rebeccapurple;
-
+  background-color: var(--wrapper-bg-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .dashboard-wrapper > article {
   border-radius: var(--border-radius);
+}
+
+/* Taps */
+
+.taps-wrapper > h1 {
+  width: 100%;
+  padding: 1em;
+}
+
+.taps-flex-wrapper {
+  height: 90%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.taps-card {
+  width: 13%;
+  height: 90%;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: var(--border-radius);
+  background-color: var(--main-bg-color);
+}
+
+.taps-card > img {
+  width: 90%;
+  mix-blend-mode: difference;
+}
+
+.taps-card > span {
+  padding: 1em 0;
+  font-size: 3em;
+  font-weight: bold;
+  mix-blend-mode: difference;
+}
+
+@keyframes wave-animation {
+  0% {
+    background-position: 0 bottom;
+  }
+  100% {
+    background-position: 200px bottom;
+  }
+}
+
+.wave {
+  background-image: url("http://i.imgur.com/uFpLbYt.png");
+  animation: wave-animation 1s infinite linear;
+  background-size: 200px 40%;
+  background-repeat: repeat-x;
+  opacity: 1;
+}
+
+/* Storage */
+
+.storage-wrapper > h1 {
+  padding: 1em;
+  width: 100%;
+}
+
+.storage-card {
+  width: 45%;
+  /* height: 8em; */
+  margin: 0.5em 0;
+  padding: 0 0.5em 0 0.5em;
+  text-align: center;
+  border-radius: var(--border-radius);
+  background: var(--main-bg-color);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.storage-left-col {
+  width: 25%;
+}
+
+.storage-left-col > img {
+  width: 100%;
+}
+
+.storage-right-col {
+  width: 75%;
+  font-weight: bold;
+}
+
+.storage-right-col > span {
+  font-size: 0.7em;
+}
+
+.storage-right-col > h3 {
+  font-size: 2em;
 }
