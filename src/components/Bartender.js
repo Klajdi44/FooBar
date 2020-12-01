@@ -1,9 +1,10 @@
 
 function Bartender(props) {
-	// console.log(props.apiData, bartenderStatus);
+	console.log(props.apiData);
 	return (
 
 		<article className='bartender-wrapper' >
+			<h1 className='bartenders-heading'>Bartenders</h1>
 			{props.apiData.map(bartender => {
 
 				// const replaceKeg = bartender.statusDetail === 'replaceKeg' ? 'Replacing Keg' : null;

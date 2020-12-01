@@ -26,7 +26,10 @@ body {
 
 
 .bartender-wrapper img{
-  max-width: 20%;
+  max-width: 30%;
+  margin: 0;
+  padding: 0;
+outline: 1px solid red
 }
 
 /* Bartenders section */
@@ -34,27 +37,37 @@ body {
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 3em;
-  margin: 2em auto;
+   gap: 1em;
+   place-items: center;
+   padding: 1em 0;
+   grid-area: bartenders;
+   background: var(--wrapper-bg-color);
+
 }
 .bartender-card{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   background:red;
+  min-height: 1.5em;
   min-width:20%;
-  max-width:40%;
-  padding: 3em;
+  max-width:95%;
+  padding: 1em 2em;
   border-radius: 20px;
-  margin-left: 2em;
   color: #fff;
-  background:#2c2c2c;
+  background: var(--main-bg-color);
+}
+.bartenders-heading{
+  align-self: flex-start;
+  margin-left: .6em;
 }
 
 .bartender-left-col,.bartender-mid-col{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  outline: 1px solid red
+
 }
 
 .bartender-right-col h2{
@@ -68,7 +81,7 @@ body {
 
 .dashboard-wrapper{
   display:grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1.3fr 2fr 1.3fr;
   grid-template-areas:
   'statistics orders bartenders'
    'taps taps storage';
@@ -76,10 +89,6 @@ body {
 }
 
 
-.bartender-wrapper{
-  grid-area: bartenders;
-  background: red;
-}
 
 .statistics-wrapper{
   grid-area: statistics;
@@ -89,7 +98,7 @@ body {
 
 .orders-wrapper{
   grid-area: orders;
-  background: yellow;
+  background: brown;
 
 }
 
