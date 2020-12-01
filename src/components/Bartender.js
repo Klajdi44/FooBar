@@ -47,19 +47,19 @@ function Bartender(props) {
 
 						<div className='bartender-mid-col'>
 							<div>
-								<h3>Serving Customer</h3>
-								<span> {bartender.servingCustomer === null ? 'None' : bartender.servingCustomer}</span>
+								<span>Serving Customer</span>
+								<h4> {bartender.servingCustomer === null ? 'None' : `#${bartender.servingCustomer}`}</h4>
 							</div>
 							<br />
 							<div>
-								<h3>Currently</h3>
-								<span> {statuses[bartender.statusDetail]}</span>
+								<span>Currently</span>
+								<h4> {statuses[bartender.statusDetail]}</h4>
 							</div>
 						</div>
 
 						<div className='bartender-right-col'>
-							<h3>Tap</h3>
-							<span>{bartender.usingTap === null ? "None" : bartender.usingTap}</span>
+							<span>Tap</span>
+							<h4>{bartender.usingTap === null ? "None" : bartender.usingTap}</h4>
 						</div>
 
 					</div>
