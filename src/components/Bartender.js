@@ -1,6 +1,17 @@
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
 
 function Bartender(props) {
 	console.log(props.apiData);
+
+	useEffect(() => {
+		gsap.fromTo(
+			".bartender-card",
+			{ opacity: 0, x: 100 + "%" },
+			{ opacity: 1, x: 0 + "%", stagger: 0.3, duration: 1 }
+		);
+	}, []);
+
 	return (
 
 		<article className='bartender-wrapper' >
