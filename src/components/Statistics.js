@@ -25,10 +25,11 @@ function Statistics(props) {
 
 		visualMap: {
 			show: false,
-			min: 50,
+			min: 10,
 			max: 500,
 			inRange: {
-				colorLightness: [4, -1]
+				colorLightness: [0, 10]
+				// colorLightness: [4, -1]
 			}
 		},
 		series: [
@@ -38,16 +39,16 @@ function Statistics(props) {
 				radius: '70%',
 				center: ['50%', '50%'],
 				data: [
-					{ value: 335, name: 'El leffe' },
-					{ value: 100, name: 'El bla' },
-					{ value: 390, name: 'El chiko' },
-					{ value: 200, name: 'El Jose' },
-					{ value: 500, name: 'El chikita' },
-					{ value: 300, name: 'El dorado' },
-					{ value: 310, name: 'Row 26' },
-					{ value: 274, name: 'Steampunk' },
-					{ value: 235, name: 'Ruined childhood' },
-					{ value: 400, name: 'fairyTale ale' }
+					{ value: 10, name: 'El Hefe' },
+					{ value: 20, name: 'Fairy Tale Ale' },
+					{ value: 30, name: 'Hollaback Lager' },
+					{ value: 30, name: 'GitHop' },
+					{ value: 25, name: 'Hoppily Ever After' },
+					{ value: 20, name: 'Mowintime' },
+					{ value: 10, name: 'Row 26					' },
+					{ value: 23, name: 'Steampunk' },
+					{ value: 40, name: 'Ruined childhood' },
+					{ value: 15, name: 'Sleighride' }
 				].sort(function (a, b) { return a.value - b.value; }),
 				roseType: 'radius',
 				label: {
@@ -59,8 +60,8 @@ function Statistics(props) {
 						color: '#fff'
 					},
 					smooth: 0.2,
-					length: 0,
-					length2: 0
+					length: 4,
+					length2: 4
 				},
 				itemStyle: {
 					color: '#c23531',
@@ -80,7 +81,8 @@ function Statistics(props) {
 	return (
 		< article className="statistics-wrapper" >
 			<ReactEcharts option={getOption()} style={{ height: 500 }} />
-			<h1>InQueue {props.apiData.length}</h1>
+			<span className='in-queue'>In Queue: <h1>{props.apiData.length}</h1> </span>
+
 		</article >
 	);
 }
