@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import gsap from 'gsap';
 
 function Bartender(props) {
-	console.log(props.apiData);
+	// console.log(props.apiData);
 
 	useEffect(() => {
 		gsap.fromTo(
