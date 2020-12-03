@@ -22,7 +22,7 @@ function Orders(props) {
             <ul>
               {Object.entries(duplicatesResult).map(([key, value]) => {
                 return (
-                  <li className="order-beer">
+                  <li key={orders.id + Math.random()} className="order-beer">
                     {value === 1 ? "" : `x${value}`} {key}{" "}
                   </li>
                 );
