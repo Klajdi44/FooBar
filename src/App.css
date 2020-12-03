@@ -49,6 +49,17 @@ body {
   font-weight: normal;
 }
 
+/* Loader */
+.loader-wrapper{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  background: var(--wrapper-bg-color);
+  padding: 5em;
+ border-radius: var(--border-radius);
+}
+
 /* Bartenders section */
 .bartender-wrapper {
   grid-area: bartenders;
