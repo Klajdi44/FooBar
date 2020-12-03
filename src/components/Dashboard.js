@@ -6,16 +6,16 @@ import Orders from "./Orders";
 import Statistics from "./Statistics";
 
 function Dashboard(props) {
-	// console.log(props.apiData);
-	return (
-		<section className="dashboard-wrapper">
-			<Bartender apiData={props.apiData.bartenders} />
-			<Statistics apiData={props.apiData.queue} />
-			<Taps apiData={props.apiData.taps} />
-			<Orders apiData={props.apiData.queue} />
-			<Storage apiData={props.apiData.storage} />
-		</section>
-	);
+  // console.log(props.apiData);
+  return (
+    <section className="dashboard-wrapper">
+      <Bartender apiData={props.apiData.bartenders} />
+      <Statistics apiData={props.apiData.queue} />
+      <Taps apiData={props.apiData.taps} />
+      <Orders apiData={props.apiData.queue} />
+      <Storage apiData={props.apiData.storage} />
+    </section>
+  );
 }
 
 export default Dashboard;

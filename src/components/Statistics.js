@@ -1,14 +1,30 @@
 import ReactEcharts from "echarts-for-react";
 
 function Statistics(props) {
-  // console.log(props.apiData.length);
-  // const var1 = props.apiData.length < 1 ? 255 : props.apiData[0].id;
+  const allBeer = [];
+  const duplicatesResult = {};
+  props.apiData.map((orders) => {
+    orders.order.map(function (beer) {
+      allBeer.push(beer);
+
+      return allBeer;
+    });
+  });
+
+  allBeer.map((beer) => {
+    duplicatesResult[beer] = (duplicatesResult[beer] || 0) + 1;
+    return duplicatesResult;
+  });
+
+  const obj = Object.entries(duplicatesResult).map(([key, value]) => {
+    return { value: value, name: String(key) };
+  });
 
   const getOption = () => ({
     backgroundColor: "#2c2c2c",
 
     title: {
-      text: " Popularity",
+      text: "Demand",
       left: "center",
       top: 0,
       textStyle: {
@@ -27,7 +43,7 @@ function Statistics(props) {
       min: 10,
       max: 500,
       inRange: {
-        colorLightness: [0, 10],
+        colorLightness: [4, -1],
         // colorLightness: [4, -1]
       },
     },
@@ -37,18 +53,7 @@ function Statistics(props) {
         type: "pie",
         radius: "70%",
         center: ["50%", "50%"],
-        data: [
-          { value: 10, name: "El Hefe" },
-          { value: 20, name: "Fairy Tale Ale" },
-          { value: 30, name: "Hollaback Lager" },
-          { value: 30, name: "GitHop" },
-          { value: 25, name: "Hoppily Ever After" },
-          { value: 20, name: "Mowintime" },
-          { value: 10, name: "Row 26					" },
-          { value: 23, name: "Steampunk" },
-          { value: 40, name: "Ruined childhood" },
-          { value: 15, name: "Sleighride" },
-        ].sort(function (a, b) {
+        data: obj.sort(function (a, b) {
           return a.value - b.value;
         }),
         roseType: "radius",
@@ -78,6 +83,7 @@ function Statistics(props) {
       },
     ],
   });
+
   return (
     <article className="statistics-wrapper">
       <ReactEcharts option={getOption()} style={{ height: 500 }} />

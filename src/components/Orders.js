@@ -11,7 +11,7 @@ function Orders(props) {
           return duplicatesResult;
         });
 
-        console.log(duplicatesResult);
+        // console.log(duplicatesResult);
 
         return (
           <div className="order-card" key={orders.id}>
