@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner'
 import Dashboard from './components/Dashboard';
 import { get } from './modules/rest';
 import { customInterval } from './modules/customInterval';
@@ -15,8 +16,14 @@ function App() {
 
   return (
     <div className="App">
-      {apiData.length === 0 ? <div> Loading </div> : <Dashboard apiData={apiData} />
-
+      {apiData.length === 0 ?
+        <div className="loader-wrapper">  <Loader
+          type="RevolvingDot"
+          color="#00BFFF"
+          height={100}
+          width={100}
+        /> </div>
+        : <Dashboard apiData={apiData} />
       }
     </div>
   );
