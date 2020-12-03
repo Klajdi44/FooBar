@@ -6,7 +6,7 @@ function Storage(props) {
         const imageUrl = storage.name.replace(/\s+/g, "").toLowerCase();
 
         return (
-          <div className="storage-card">
+          <div className="storage-card" key={storage.name}>
             <div className="storage-left-col">
               <img src={`images/${imageUrl}.png`}></img>
             </div>

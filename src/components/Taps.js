@@ -11,7 +11,7 @@ function Taps(props) {
           };
 
           return (
-            <div style={wave} className="taps-card wave">
+            <div style={wave} className="taps-card wave" key={taps.id}>
               <h3>{taps.beer}</h3>
               <img src={`images/${imageUrl}.png`}></img>
               <span>{percentage}%</span>

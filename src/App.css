@@ -9,20 +9,23 @@
 :root {
   --main-bg-color: #212121;
   --wrapper-bg-color: #2c2c2c;
-  --header-font-family: Helvetica;
-  --header-font-size: 14px;
-  --regular-font-size: 14px;
+  --header-font-family: "Roboto", sans-serif;
+  --header-font-weight: bold;
+  --big-header-font-size: 18pt;
+  --header-font-size: 14pt;
+  --regular-font-size: 11pt;
   --main-font-color: #fff;
   --border-radius: 15px;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--header-font-family), -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-font-color);
   background-color: var(--main-bg-color);
   padding: 1em;
+  font-weight: normal;
 }
 
 /* Bartenders section */
@@ -30,35 +33,41 @@ body {
   grid-area: bartenders;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 1em;
   place-items: center;
   padding: 1em 0;
   grid-area: bartenders;
   background: var(--wrapper-bg-color);
 }
+
 .bartender-card {
   display: grid;
   grid-template-areas: "left-col mid-col right-col";
-  gap: 1.2em;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1.4fr 3fr 1fr;
   min-height: 3em;
   min-width: 20%;
-  max-width: 96%;
-  padding: 1em 2em;
+  max-width: 90%;
+  padding: 1em;
   border-radius: var(--border-radius);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
-.bartender-wrapper img {
+.bartender-left-col > img {
   max-width: 100%;
+}
+
+.bartender-left-col > h2 {
+  font-size: var(--big-header-font-size);
+  font-weight: var(--header-font-weight);
 }
 
 .bartenders-heading {
   align-self: flex-start;
   padding-left: 1em;
   font-size: var(--header-font-size);
+  font-weight: var(--header-font-weight);
 }
 
 .bartender-left-col,
@@ -70,44 +79,66 @@ body {
 
 .bartender-left-col {
   grid-area: left-col;
+  align-items: center;
 }
 
 .bartender-mid-col {
   grid-area: mid-col;
-  align-self: flex-end;
+  align-self: flex-start;
   justify-self: center;
+}
+
+.bartender-mid-col div > h4 {
+  font-weight: var(--header-font-weight);
 }
 
 .bartender-right-col {
   grid-area: right-col;
 }
 
+.bartender-right-col h4 {
+  font-weight: var(--header-font-weight);
+}
+
 /* dashboard grid */
 
 .dashboard-wrapper {
   display: grid;
-  grid-template-columns: 1.4fr 2fr 1.4fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 85vh repeat(3, auto);
   grid-template-areas:
-    "statistics orders bartenders"
-    "taps taps storage";
+    "statistics" "orders" "bartenders"
+    "taps" "storage";
   gap: 1em;
 }
 
 .statistics-wrapper {
   grid-area: statistics;
- background: var(--main-bg-color);
+  background: var(--main-bg-color);
 }
 
 .orders-wrapper {
   grid-area: orders;
   background: var(--wrapper-bg-color);
-  display:grid;
-  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  padding: 1em;
+  overflow-y: auto;
+  /* height: 76vh; */
+}
+
+/* .orders-wrapper {
+  grid-area: orders;
+  background: var(--wrapper-bg-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 1em;
   gap: 1em;
   overflow-y: auto;
-  height: 550px;
-}
+  /* height: 76vh; 
+} */
 
 .taps-wrapper {
   grid-area: taps;
@@ -132,22 +163,25 @@ body {
   width: 100%;
   padding: 1em;
   font-size: var(--header-font-size);
+  font-weight: var(--header-font-weight);
+  font-weight: var(--header-font-weight);
 }
 
 .taps-flex-wrapper {
   height: 90%;
   width: 100%;
-  padding: 0;
+  padding: 1em;
   margin: 0;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
 
 .taps-card {
-  width: 13%;
-  height: 90%;
+  width: 45%;
+  height: auto;
   padding: 0.5em;
   margin: 0.5em 0;
   display: flex;
@@ -160,7 +194,8 @@ body {
 }
 
 .taps-card > img {
-  width: 90%;
+  width: 60%;
+  padding: 3em 0;
   mix-blend-mode: difference;
 }
 
@@ -193,11 +228,12 @@ body {
 .storage-wrapper > h1 {
   padding: 1em;
   width: 100%;
+  font-weight: var(--header-font-weight);
   font-size: var(--header-font-size);
 }
 
 .storage-card {
-  width: 45%;
+  width: 30%;
   /* height: 8em; */
   margin: 0.5em 0;
   padding: 0 0.5em 0 0.5em;
@@ -223,56 +259,118 @@ body {
 }
 
 .storage-right-col > span {
+  font-weight: var(--header-font-weight);
   font-size: 0.7em;
 }
 
 .storage-right-col > h3 {
+  font-weight: var(--header-font-weight);
   font-size: 2em;
 }
 /* orders */
-.order-card{
+
+.orders-wrapper > h1 {
+  padding: 0 1em 1em 0;
+  width: 100%;
+  font-size: var(--header-font-size);
+}
+
+.order-card {
   /* height: max(150px, 100%);
    */
-   height: clamp(150px, 200px, 100%);
-  width: 300px;
-  background:var(--main-bg-color);
+  height: clamp(150px, 200px, 100%);
+  width: 90%;
+  background: var(--main-bg-color);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   border-radius: 17px;
-   padding: 1em;
+  padding: 1em;
+  margin: 0 0.4em 0.4em 0;
   /* filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .3)); */
 }
 
-.order-card ul{
+.order-card ul {
   justify-self: flex-start;
-  margin-left: .5em;
-}
-.order-card li{
-list-style: none;
-line-height: 160%;
+  margin-left: 0.5em;
 }
 
+.order-card li {
+  list-style: none;
+  line-height: 160%;
+}
 
-.order-img{
+.order-img {
   height: 100px;
 }
 
-.order-number{
-  margin-left: .8em;
+.order-number {
+  margin-left: 0.8em;
 }
 
 /* statistics */
-.in-queue{
-font-size: 2.5em;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:.2em 0;
+.in-queue {
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em 0;
 }
 
-.in-queue h1{
-font-size:1.3em;
-display:inline;
+.in-queue h1 {
+  font-size: 1.3em;
+  padding-left: 0.2em;
+  display: inline;
 }
 
+@media only screen and (min-width: 600px) {
+  .taps-card {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 50vh repeat(2, auto);
+    grid-template-areas:
+      "statistics bartenders" "orders orders"
+      "taps taps" "storage storage";
+  }
+
+  .storage-card {
+    width: 45%;
+  }
+
+  .order-card {
+    width: 48%;
+  }
+
+  .orders-wrapper {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1.4fr 2fr 1.4fr;
+    grid-template-rows: 75vh auto;
+    grid-template-areas:
+      "statistics orders bartenders"
+      "taps taps storage";
+  }
+
+  .taps-flex-wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .taps-card {
+    width: 13%;
+    height: 90%;
+  }
+
+  .taps-card > img {
+    width: 90%;
+    padding: 0;
+  }
+}
