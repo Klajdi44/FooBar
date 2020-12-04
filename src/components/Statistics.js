@@ -3,8 +3,9 @@ import ReactEcharts from "echarts-for-react";
 function Statistics(props) {
   const allBeer = [];
   const duplicatesResult = {};
-  props.apiData.map((orders) => {
-    orders.order.map(function (beer) {
+
+  props.apiData.forEach((orders) => {
+    orders.order.map(beer => {
       allBeer.push(beer);
 
       return allBeer;
@@ -17,7 +18,7 @@ function Statistics(props) {
   });
 
   const obj = Object.entries(duplicatesResult).map(([key, value]) => {
-    return { value: value, name: String(key) };
+    return { value, name: key };
   });
 
   const getOption = () => ({
@@ -35,15 +36,16 @@ function Statistics(props) {
 
     tooltip: {
       trigger: "item",
-      formatter: "{a} <br/>{b} : {c} ({d}%)",
+      triggerOn: 'mousemove|click',
+      formatter: "{b} : {c} ({d}%)",
     },
 
     visualMap: {
       show: false,
-      min: 10,
-      max: 500,
+      min: 1,
+      max: 20,
       inRange: {
-        colorLightness: [4, -1],
+        colorLightness: [0, 3],
         // colorLightness: [4, -1]
       },
     },
@@ -51,9 +53,9 @@ function Statistics(props) {
       {
         name: "Beer",
         type: "pie",
-        radius: "70%",
+        radius: "50%",
         center: ["50%", "50%"],
-        data: obj.sort(function (a, b) {
+        data: obj.sort((a, b) => {
           return a.value - b.value;
         }),
         roseType: "radius",
@@ -66,8 +68,8 @@ function Statistics(props) {
             color: "#fff",
           },
           smooth: 0.2,
-          length: 4,
-          length2: 4,
+          length: 1,
+          length2: 20,
         },
         itemStyle: {
           color: "#c23531",
