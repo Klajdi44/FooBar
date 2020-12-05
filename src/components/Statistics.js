@@ -5,7 +5,7 @@ function Statistics(props) {
   const duplicatesResult = {};
 
   props.apiData.forEach((orders) => {
-    orders.order.map(beer => {
+    orders.order.map((beer) => {
       allBeer.push(beer);
 
       return allBeer;
@@ -26,17 +26,17 @@ function Statistics(props) {
 
     title: {
       text: "Demand",
-      left: "center",
-      top: 0,
+      left: "15",
+      top: "15",
       textStyle: {
         color: "#fff",
-        fontSize: "35",
+        fontSize: "19",
       },
     },
 
     tooltip: {
       trigger: "item",
-      triggerOn: 'mousemove|click',
+      triggerOn: "mousemove|click",
       formatter: "{b} : {c} ({d}%)",
     },
 
@@ -53,7 +53,7 @@ function Statistics(props) {
       {
         name: "Beer",
         type: "pie",
-        radius: "50%",
+        radius: "60%",
         center: ["50%", "50%"],
         data: obj.sort((a, b) => {
           return a.value - b.value;
@@ -88,7 +88,7 @@ function Statistics(props) {
 
   return (
     <article className="statistics-wrapper">
-      <ReactEcharts option={getOption()} style={{ height: 500 }} />
+      <ReactEcharts option={getOption()} style={{ height: 390 }} />
       <span className="in-queue">
         In Queue: <h1>{props.apiData.length}</h1>{" "}
       </span>
