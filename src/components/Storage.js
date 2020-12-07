@@ -8,7 +8,7 @@ function Storage(props) {
         return (
           <div className="storage-card" key={storage.name}>
             <div className="storage-left-col">
-              <img src={`images/${imageUrl}.png`} alt='Beers storage'></img>
+              <img src={`images/${imageUrl}.png`} alt="Beers storage"></img>
             </div>
             <div className="storage-right-col">
               <span>{storage.name}</span>

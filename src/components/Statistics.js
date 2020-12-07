@@ -45,7 +45,7 @@ function Statistics(props) {
       min: 1,
       max: 20,
       inRange: {
-        colorLightness: [0, 3],
+        colorLightness: [0.2, 1],
         // colorLightness: [4, -1]
       },
     },
@@ -68,8 +68,8 @@ function Statistics(props) {
             color: "#fff",
           },
           smooth: 0.2,
-          length: 1,
-          length2: 20,
+          length: 10,
+          length2: 10,
         },
         itemStyle: {
           color: "#c23531",
@@ -88,7 +88,7 @@ function Statistics(props) {
 
   return (
     <article className="statistics-wrapper">
-      <ReactEcharts option={getOption()} style={{ height: 390 }} />
+      <ReactEcharts option={getOption()} />
       <span className="in-queue">
         In Queue: <h1>{props.apiData.length}</h1>{" "}
       </span>
