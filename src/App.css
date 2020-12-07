@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 *,
 *::before,
@@ -13,7 +13,7 @@
   --main-bg-color: #212121;
   --wrapper-bg-color: #2c2c2c;
   --header-font-family: "Roboto", sans-serif;
-  --header-font-weight: bold;
+  --header-font-weight: 700;
   --big-header-font-size: 16pt;
   --header-font-size: 14pt;
   --regular-font-size: 11pt;
@@ -47,7 +47,7 @@ body {
   color: var(--main-font-color);
   background-color: var(--main-bg-color);
   padding: 1em;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 /* Loader */
