@@ -198,7 +198,7 @@ body {
   background-color: var(--wrapper-bg-color);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .dashboard-wrapper > article {
@@ -241,6 +241,10 @@ body {
   background-color: var(--main-bg-color);
 }
 
+/* .tap-out {
+  filter: drop-shadow(2px 2px 10px #31bec2) invert(75%);
+} */
+
 .taps-card > img {
   width: 60%;
   padding: 3em 0;
@@ -274,7 +278,7 @@ body {
 /* Storage */
 
 .storage-wrapper > h1 {
-  padding: 1em;
+  padding: 1em 0 0.5em 1em;
   width: 100%;
   font-weight: var(--header-font-weight);
   font-size: var(--header-font-size);
@@ -283,35 +287,18 @@ body {
 .storage-card {
   width: 45%;
   /* height: 8em; */
-  margin: 0.5em 0;
-  padding: 0 0.5em 0 0.5em;
+  margin: 0 0 0.5em 0;
+  padding-top: 0.2em;
   text-align: center;
   border-radius: var(--border-radius);
   background: var(--main-bg-color);
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
 }
 
-.storage-left-col {
-  width: 25%;
+.storage-bot-col > span {
+  font-size: var(--regular-font-size);
 }
 
-.storage-left-col > img {
-  width: 100%;
-}
-
-.storage-right-col {
-  width: 75%;
-  font-weight: bold;
-}
-
-.storage-right-col > span {
-  font-weight: var(--header-font-weight);
-  font-size: 0.7em;
-}
-
-.storage-right-col > h3 {
+.storage-bot-col > h3 {
   font-weight: var(--header-font-weight);
   font-size: 2em;
 }
@@ -429,16 +416,15 @@ canvas {
   .order-card {
     width: 90%;
   }
+  .bartender-card {
+    height: 27%;
+  }
 }
 
 @media only screen and (min-device-width: 1200px) {
   .dashboard-wrapper {
     grid-template-columns: 1.4fr 2fr 1.4fr;
     grid-template-rows: 50vh 45vh;
-  }
-
-  .bartender-card {
-    height: 28%;
   }
 
   .order-card {
