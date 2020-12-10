@@ -11,8 +11,14 @@ function Taps(props) {
             backgroundSize: `200px ${percentage}%`,
           };
 
+          const tapOut = {
+            backgroundImage: `url("./images/wave.png")`,
+            filter: `drop-shadow(2px 2px 10px #31bec2) invert(75%)`,
+            backgroundSize: `200px ${percentage}%`,
+          };
+
           return (
-            <div style={wave} className="taps-card wave" key={taps.id}>
+            <div style={percentage < 35 ? tapOut : wave} className="taps-card wave" key={taps.id}>
               <h3>{taps.beer}</h3>
               <img src={`images/${imageUrl}.png`} alt="storage kegs"></img>
               <span>{percentage}%</span>

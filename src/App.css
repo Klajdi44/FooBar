@@ -241,10 +241,6 @@ body {
   background-color: var(--main-bg-color);
 }
 
-/* .tapOut {
-  filter: drop-shadow(2px 2px 10px #31bec2) invert(75%);
-} */
-
 .taps-card > h3 {
   mix-blend-mode: difference;
 }
