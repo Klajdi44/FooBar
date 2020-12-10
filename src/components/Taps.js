@@ -7,6 +7,7 @@ function Taps(props) {
           const imageUrl = taps.beer.replace(/\s+/g, "").toLowerCase();
           const percentage = (taps.level * 100) / taps.capacity;
           const wave = {
+            backgroundImage: `url("./images/wave.png")`,
             backgroundSize: `200px ${percentage}%`,
           };
 
