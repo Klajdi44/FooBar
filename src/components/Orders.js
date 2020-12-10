@@ -1,5 +1,8 @@
+import React, { useState } from "react";
+import gsap from "gsap";
+
 function Orders(props) {
-  // props.apiData.length < 1 ? null : props.apiData.map(orders =>
+  const [dataLength, setDataLength] = useState(0);
 
   return (
     <article className="orders-wrapper">
@@ -11,7 +14,18 @@ function Orders(props) {
           return duplicatesResult;
         });
 
-        // console.log(duplicatesResult);
+        //Orders animation
+        function checkLength() {
+          if (dataLength < props.apiData.length || dataLength == 1) {
+            gsap.fromTo(".order-card", { opacity: 0 }, { opacity: 1, duration: 2 });
+          } else {
+            gsap.fromTo(".order-card", { opacity: 0.2 }, { opacity: 1, duration: 1 });
+          }
+          setDataLength(props.apiData.length);
+        }
+
+        dataLength !== props.apiData.length ? checkLength() : console.log("no");
+        //
 
         return (
           <div className="order-card" key={orders.id}>
