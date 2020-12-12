@@ -16,8 +16,8 @@ function Orders(props) {
 
         //Orders animation
         function checkLength() {
-          if (dataLength < props.apiData.length || dataLength == 1) {
-            gsap.fromTo(".order-card", { opacity: 0 }, { opacity: 1, duration: 2 });
+          if (dataLength < props.apiData.length || dataLength === 1) {
+            gsap.fromTo(".order-card", { opacity: 0 }, { opacity: 1, stagger: 0.5, duration: 2 });
           } else {
             gsap.fromTo(".order-card", { opacity: 0.2 }, { opacity: 1, duration: 1 });
           }
