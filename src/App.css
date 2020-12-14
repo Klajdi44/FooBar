@@ -48,6 +48,7 @@ body {
   background-color: var(--main-bg-color);
   padding: 1em;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 /* Loader */

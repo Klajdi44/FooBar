@@ -19,7 +19,7 @@ function App() {
       {apiData.length === 0 ?
         <div className="loader-wrapper">  <Loader
           type="RevolvingDot"
-          color="#00BFFF"
+          color="#bf2d26"
           height={100}
           width={100}
         /> </div>
