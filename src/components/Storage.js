@@ -10,7 +10,6 @@ function Storage(props) {
     <article className="storage-wrapper">
       <h1>Storage</h1>
       {props.apiData.map((storage) => {
-        // const imageUrl = storage.name.replace(/\s+/g, "").toLowerCase();
 
         return (
           <div className="storage-card" key={storage.name}>
